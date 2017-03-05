@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="scotchApp">
+
+    <head>
+        <!-- SCROLLS -->
+        <title>OXYGEN Inc. Employee &amp; Stock Management</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+        <!-- SPELLS -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="js/app.js" type="text/javascript"></script>
+    </head>
+
+    <!-- define angular controller -->
+    <body ng-controller="mainController">
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#home"><img src="img/HR_interim_management.png" height="80" width="120" alt="Logo"/></a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#employee"><i class="fa fa-users"></i> Employee</a></li>
+                    <li><a href="#nemployee"><i class="fa fa-user-plus"></i> New Employee</a></li>
+                    <li><a href="#salary"><i class="fa fa-paypal"></i> Salary Management</a></li>
+                    <li><a href="#product"><i class="fa fa-cubes"></i> Product</a></li>
+                    <li><a href="#nproduct"><i class="fa fa-cube"></i> New Product</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="main">
+            <div ng-view></div>
+
+        </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <hr><hr>
+        <footer class="text-center">
+            &copy; Copyright All rights reserved by <span style="color: darkmagenta">OXYGEN Inc.</span>
+        </footer>
+
+    </body>
+
+</html>
+

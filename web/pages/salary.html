@@ -1,0 +1,154 @@
+<div class="jumbotron text-center">
+    <h3 class="panel-heading" style="color: darkslateblue">Showing Current Month Salary paid Employees</h3>
+
+    <div class="container"> 
+        Show Employees: <input type="checkbox" ng-model="salaryForm.myVar" />
+        <div ng-show="salaryForm.myVar">
+            <form>
+                <div class="input-group pull-right" style="width: 250px">
+                    <input type="text" class="form-control" placeholder="Search Employees" ng-model="test">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default btn-info" type="submit">
+                            <i class="glyphicon glyphicon-search "></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <br/>
+            <table class="table table-hover table-striped table-bordered">
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Month</th>
+                    <th>Salary</th>
+                    <th>Status</th>
+                </tr>
+                <tr ng-repeat="salary in salarys| filter:test| filter:current | filter:currentY | orderBy:'ename'">
+                    <td> {{ salary.ename}}</td>
+                    <td> {{ salary.month}}</td>
+                    <td >{{ salary.salary | currency}}</td>
+                    <td> {{ salary.status}}</td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <center>
+            <h3 style="color: darkslateblue">Make Payment to Employees</h3><hr>
+            <form class="form-horizontal" ng-submit="submitSalary()">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Full Name</label>
+                                <div class="col-md-8 selectContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span>
+                                        <select name="month" class="form-control selectpicker" placeholder="Month" ng-model="salaryForm.ename">
+                                            <option value="Md. Mehedi Hasan" >Md. Mehedi Hasan</option>
+                                            <option value="Md. Saidul Haque">Md. Saidul Haque</option>
+                                            <option value="Sadia Sultana">Sadia Sultana</option>
+                                            <option value="Md. Tamimul Islam Shaker">Md. Tamimul Islam Shaker</option>
+                                            <option value="Syada Humaira Aktar">Syada Humaira Aktar</option>
+                                            <option value="Mst. Nahida Muniya">Mst. Nahida Muniya</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Month</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                                        <select name="month" class="form-control selectpicker" placeholder="Month" ng-model="salaryForm.month">
+                                            <option value="January" >January</option>
+                                            <option value="February">February</option>
+                                            <option value="March">March</option>
+                                            <option value="April">April</option>
+                                            <option value="May">May</option>
+                                            <option value="June">June</option>
+                                            <option value="July">July</option>
+                                            <option value="August">August</option>
+                                            <option value="September">September</option>
+                                            <option value="October">October</option>
+                                            <option value="November">November</option>
+                                            <option value="December">December</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Year</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <select name="year" class="form-control selectpicker" placeholder="Year" ng-model="salaryForm.year">
+                                            <option value="2015">2015</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Salary</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-money"></i></span>
+                                        <input name="salary" placeholder="Salary Amount" class="form-control" type="text" ng-model="salaryForm.salary">
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Status</label>
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-cc-paypal"></i></span>
+                                        <select name="status" class="form-control selectpicker" placeholder="Status" ng-model="salaryForm.status">
+                                            <option value="Paid" >Paid</option>
+                                            <option value="Unpaid">Unpaid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-8">
+                                    <button type="submit" class="btn btn-info" >Submit <span class="fa fa-fast-forward"></span></button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+    </div>
+</div>
